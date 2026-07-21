@@ -73,8 +73,9 @@ export function Contact() {
         name: data.name,
         email: data.email,
         message: data.message,
+        "_gotcha": data._gotcha,
       });
-      const res = await fetch("/", {
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: body.toString(),
@@ -126,8 +127,6 @@ export function Contact() {
                 <form
                   ref={formRef}
                   name="contact"
-                  data-netlify="true"
-                  data-netlify-honeypot="_gotcha"
                   onSubmit={handleSubmit}
                   noValidate
                   className="flex flex-col gap-[18px]"
