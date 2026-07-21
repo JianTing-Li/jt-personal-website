@@ -8,9 +8,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { siteConfig } from "@/data/site";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
-// Replace with your Formspree endpoint, e.g. https://formspree.io/f/XXXXXXXX
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
 interface FieldErrors {
@@ -71,14 +68,17 @@ export function Contact() {
     lastSubmitTime.current = Date.now();
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const body = new URLSearchParams({
+        "form-name": "contact",
+        name: data.name,
+        email: data.email,
+        message: data.message,
+        "_gotcha": data._gotcha,
+      });
+      const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          message: data.message,
-        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
       });
       if (res.ok) {
         setStatus("success");
@@ -126,10 +126,12 @@ export function Contact() {
               {status !== "success" && (
                 <form
                   ref={formRef}
+                  name="contact"
                   onSubmit={handleSubmit}
                   noValidate
                   className="flex flex-col gap-[18px]"
                 >
+                  <input type="hidden" name="form-name" value="contact" />
                   <input
                     type="text"
                     name="_gotcha"
