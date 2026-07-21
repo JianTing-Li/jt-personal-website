@@ -52,6 +52,7 @@ export function Home() {
                 width={280}
                 height={280}
                 priority
+                unoptimized
                 className="relative z-10 h-full w-full rounded-full object-cover object-top"
               />
             </div>

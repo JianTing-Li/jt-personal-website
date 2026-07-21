@@ -33,9 +33,9 @@ export function Projects() {
             <ProjectFilter active={filter} onChange={setFilter} />
           </div>
 
-          <ul className="mt-9 grid grid-cols-1 gap-6 [grid-template-columns:repeat(auto-fill,minmax(320px,1fr))]">
+          <ul className="mt-9 grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
             {visibleProjects.map((project) => (
-              <li key={project.id}>
+              <li key={project.id} className="h-full">
                 <ProjectCard project={project} />
               </li>
             ))}
