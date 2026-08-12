@@ -24,9 +24,16 @@ export function About() {
                   <div className="mb-2 text-lg font-bold text-text-primary">
                     {chapter.title}
                   </div>
-                  <p className="text-base leading-relaxed text-text-secondary">
-                    {chapter.body}
-                  </p>
+                  <ul className="flex list-disc flex-col gap-1.5 pl-5">
+                    {chapter.bullets.map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="text-base leading-relaxed text-text-secondary"
+                      >
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}

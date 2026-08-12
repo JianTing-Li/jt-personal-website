@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
+import { AppleIcon, AndroidIcon, SparkleIcon } from "@/components/icons";
 import { siteConfig } from "@/data/site";
 
 export function Home() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[92svh] scroll-mt-[76px] items-center overflow-hidden px-7 pb-[60px] pt-[76px]"
+      className="relative flex scroll-mt-[76px] items-center overflow-hidden px-7 pb-16 pt-[140px] md:pb-[100px] md:pt-[176px]"
     >
       <div
         aria-hidden="true"
@@ -43,7 +44,7 @@ export function Home() {
             </div>
           </div>
 
-          <div className="order-first flex justify-center md:order-last md:justify-end">
+          <div className="order-first flex flex-col items-center md:order-last md:items-end">
             <div className="relative h-[280px] w-[280px] shrink-0">
               <div className="absolute -inset-[3px] rounded-full bg-gradient-to-br from-accent/50 to-gold/20" />
               <Image
@@ -55,6 +56,22 @@ export function Home() {
                 unoptimized
                 className="relative z-10 h-full w-full rounded-full object-cover object-top"
               />
+            </div>
+            <div className="mt-5 flex items-center gap-1 rounded-pill border border-border-strong bg-surface-raised px-4 py-2">
+              <span className="flex items-center gap-1.5 px-1.5 text-text-secondary">
+                <AppleIcon className="h-4 w-4" />
+                <span className="text-xs font-medium">iOS</span>
+              </span>
+              <span className="h-3.5 w-px bg-border-strong" />
+              <span className="flex items-center gap-1.5 px-1.5 text-text-secondary">
+                <AndroidIcon className="h-4 w-4" />
+                <span className="text-xs font-medium">Android</span>
+              </span>
+              <span className="h-3.5 w-px bg-border-strong" />
+              <span className="flex items-center gap-1.5 px-1.5 text-gold">
+                <SparkleIcon className="h-4 w-4" />
+                <span className="text-xs font-medium">AI</span>
+              </span>
             </div>
           </div>
         </div>

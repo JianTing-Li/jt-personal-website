@@ -1,9 +1,9 @@
 export const aiSkills = [
-  "Human-Centered AI Design",
-  "AI-Native Product Development",
-  "LLM Evaluation & Prompt Engineering",
-  "AI Solution Architecture",
-  "AI Product Strategy",
+  "Designing AI Features Around Real Users",
+  "Building Apps with AI Tools & LLMs",
+  "Prompt Engineering & AI Model Testing",
+  "Designing AI System Architecture",
+  "AI Product Planning & Strategy",
 ];
 
 export const mobileSkills = [
