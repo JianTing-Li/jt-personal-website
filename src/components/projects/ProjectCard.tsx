@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Project } from "@/data/projects";
 import { TechTag } from "@/components/ui/TechTag";
 
@@ -106,75 +107,77 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </button>
       </div>
 
-      {expanded && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          role="presentation"
-          onClick={closeModal}
-        >
+      {expanded &&
+        createPortal(
           <div
-            className={`absolute inset-0 bg-black/60 transition-opacity ease-out motion-reduce:transition-none ${
-              entered ? "opacity-100" : "opacity-0"
-            }`}
-            style={{ transitionDuration: `${MODAL_TRANSITION_MS}ms` }}
-            aria-hidden="true"
-          />
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            onClick={(event) => event.stopPropagation()}
-            className={`relative w-full max-w-lg rounded-card border border-border bg-surface-raised p-7 shadow-xl transition-[opacity,transform] ease-out motion-reduce:transition-none ${
-              entered
-                ? "translate-y-0 scale-100 opacity-100"
-                : "translate-y-2 scale-95 opacity-0"
-            }`}
-            style={{ transitionDuration: `${MODAL_TRANSITION_MS}ms` }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+            role="presentation"
+            onClick={closeModal}
           >
-            <div className="mb-4 flex items-start justify-between gap-4">
-              <div>
-                <span className={`mb-3 inline-block rounded-pill px-2.5 py-1 font-mono text-[11.5px] tracking-wide ${badgeClasses}`}>
-                  {badgeLabel}
-                </span>
-                <h3
-                  id={titleId}
-                  className="text-[19px] font-bold text-text-primary"
-                >
-                  {project.name}
-                </h3>
-              </div>
-              <button
-                ref={closeButtonRef}
-                type="button"
-                onClick={closeModal}
-                aria-label="Close details"
-                className="shrink-0 text-xl leading-none text-text-secondary transition-colors hover:text-text-primary"
-              >
-                ×
-              </button>
-            </div>
-            <p className="text-[14.5px] leading-relaxed text-text-secondary">
-              {project.description}
-            </p>
-            <div className="my-[18px] flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <TechTag key={tag} label={tag} />
-              ))}
-            </div>
-            <p className="border-t border-border pt-3.5 text-sm leading-relaxed text-text-secondary">
-              {project.detail}
-            </p>
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-block text-[13.5px] font-semibold text-text-secondary transition-colors hover:text-text-primary"
+            <div
+              className={`fixed inset-0 bg-black/60 transition-opacity ease-out motion-reduce:transition-none ${
+                entered ? "opacity-100" : "opacity-0"
+              }`}
+              style={{ transitionDuration: `${MODAL_TRANSITION_MS}ms` }}
+              aria-hidden="true"
+            />
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={titleId}
+              onClick={(event) => event.stopPropagation()}
+              className={`relative w-full max-w-lg rounded-card border border-border bg-surface-raised p-7 shadow-xl transition-[opacity,transform] ease-out motion-reduce:transition-none ${
+                entered
+                  ? "translate-y-0 scale-100 opacity-100"
+                  : "translate-y-2 scale-95 opacity-0"
+              }`}
+              style={{ transitionDuration: `${MODAL_TRANSITION_MS}ms` }}
             >
-              View App ↗
-            </a>
-          </div>
-        </div>
-      )}
+              <div className="mb-4 flex items-start justify-between gap-4">
+                <div>
+                  <span className={`mb-3 inline-block rounded-pill px-2.5 py-1 font-mono text-[11.5px] tracking-wide ${badgeClasses}`}>
+                    {badgeLabel}
+                  </span>
+                  <h3
+                    id={titleId}
+                    className="text-[19px] font-bold text-text-primary"
+                  >
+                    {project.name}
+                  </h3>
+                </div>
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  onClick={closeModal}
+                  aria-label="Close details"
+                  className="shrink-0 text-xl leading-none text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  ×
+                </button>
+              </div>
+              <p className="text-[14.5px] leading-relaxed text-text-secondary">
+                {project.description}
+              </p>
+              <div className="my-[18px] flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <TechTag key={tag} label={tag} />
+                ))}
+              </div>
+              <p className="border-t border-border pt-3.5 text-sm leading-relaxed text-text-secondary">
+                {project.detail}
+              </p>
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-[13.5px] font-semibold text-text-secondary transition-colors hover:text-text-primary"
+              >
+                View App ↗
+              </a>
+            </div>
+          </div>,
+          document.body
+        )}
     </article>
   );
 }
