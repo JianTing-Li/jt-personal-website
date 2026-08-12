@@ -5,14 +5,14 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const focusAreas = [
   {
-    title: "AI Products for Real Workflows",
+    title: "Practical AI Tools for Everyday Work",
     description:
-      "Thoughtful AI experiences designed around genuine user needs — helping people understand information, make decisions, and complete work more effectively.",
+      "I build small AI-powered tools that save people real time — turning a pile of messy spreadsheets into clear answers, or automating a step that used to take hours of manual work.",
   },
   {
-    title: "Production Mobile Experiences",
+    title: "Production Mobile Engineering",
     description:
-      "Reliable iOS and Android products that make complex workflows feel clear, responsive, and intuitive for the people using them.",
+      "Six years shipping and maintaining iOS and Android software used daily by institutional traders and investors — professional engineering work, not side-project apps.",
   },
 ];
 
@@ -24,7 +24,7 @@ export function WhatIBuild() {
           <SectionHeading
             eyebrow="02 — WHAT I BUILD"
             title="Products for people, built with care underneath"
-            description="Every product starts with understanding someone's problem. From there, I choose the right mix of mobile engineering, AI, and thoughtful design. Not because it's trendy, but because it genuinely makes the experience better."
+            description="I start by talking to the people who'll actually use what I'm building, then work backward to the simplest thing that solves it — sometimes that's a mobile feature, sometimes a small AI-powered tool, sometimes just fixing what's already there."
           />
 
           <div className="mt-11 grid grid-cols-1 gap-6 sm:grid-cols-2">

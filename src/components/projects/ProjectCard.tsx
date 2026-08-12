@@ -14,6 +14,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
 
+  const badgeLabel = project.category === "work" ? "Work" : "Personal";
+  const badgeClasses =
+    project.category === "work"
+      ? "bg-gold/[0.12] text-gold"
+      : "bg-accent/[0.12] text-accent";
+
   useEffect(() => {
     if (!expanded) return;
 
@@ -35,8 +41,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="flex h-full flex-col rounded-card border border-border bg-surface-raised p-7 transition-colors duration-200 hover:border-border-strong">
       <div className="mb-4 flex items-center gap-2.5">
-        <span className="rounded-pill bg-gold/[0.12] px-2.5 py-1 font-mono text-[11.5px] tracking-wide text-gold">
-          Work
+        <span className={`rounded-pill px-2.5 py-1 font-mono text-[11.5px] tracking-wide ${badgeClasses}`}>
+          {badgeLabel}
         </span>
       </div>
       <h3 className="mb-2 text-[19px] font-bold text-text-primary">
@@ -87,8 +93,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
           >
             <div className="mb-4 flex items-start justify-between gap-4">
               <div>
-                <span className="mb-3 inline-block rounded-pill bg-gold/[0.12] px-2.5 py-1 font-mono text-[11.5px] tracking-wide text-gold">
-                  Work
+                <span className={`mb-3 inline-block rounded-pill px-2.5 py-1 font-mono text-[11.5px] tracking-wide ${badgeClasses}`}>
+                  {badgeLabel}
                 </span>
                 <h3
                   id={titleId}

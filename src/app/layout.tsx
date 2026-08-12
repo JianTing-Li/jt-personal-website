@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Jian Ting Li — AI Product Builder & Mobile Engineer",
   description:
-    "I've spent the past six years helping build production mobile applications, including the Goldman Sachs Marquee app. Today, I'm combining that experience with AI product development to build products that solve meaningful problems.",
+    "AI Product Builder & Mobile Engineer — I've spent the past six years helping build production mobile applications, including the Goldman Sachs Marquee app. Today, I'm combining that experience with AI product development.",
 };
 
 export default function RootLayout({

@@ -1,10 +1,11 @@
 "use client";
 
-export type FilterValue = "All" | "work";
+export type FilterValue = "All" | "work" | "personal";
 
 const filters: { value: FilterValue; label: string }[] = [
   { value: "All", label: "All" },
   { value: "work", label: "Work" },
+  { value: "personal", label: "Personal" },
 ];
 
 interface ProjectFilterProps {

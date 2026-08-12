@@ -225,6 +225,10 @@ export function Contact() {
                 development, and opportunities to build thoughtful, useful
                 products.
               </p>
+              <div className="flex items-center gap-2 text-sm font-medium text-accent">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Currently open to full-time opportunities
+              </div>
               <div className="flex flex-col gap-3">
                 <a
                   href={siteConfig.linkedinUrl}
