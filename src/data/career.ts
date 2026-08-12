@@ -14,7 +14,7 @@ export const career: CareerItem[] = [
     badge: "Current Focus",
     title: "AI Product Development Fellow",
     org: "Pursuit · AI Native Program",
-    dates: "2025 — Present",
+    dates: "Jul 2026 — Present",
     current: true,
     points: [
       "Developing AI product skills through a structured fellowship — AI Literacy, AI Build, and AI Showcase — treated as intentional, focused learning.",
